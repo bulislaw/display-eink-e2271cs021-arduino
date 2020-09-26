@@ -78,7 +78,7 @@ extern "C"
 
 /** Default temperature compensation factor used during initalization. Call
  * \ref mtb_e2271cs021_set_temp_factor() if a different temp is needed. */
-#define MTB_E2271CS021_DEFAULT_TEMP_FACTOR   (25)
+#define MTB_E2271CS021_DEFAULT_TEMP_FACTOR   (20)
 
 /** Error changing power state for display. */
 #define MTB_E2271CS021_RSLT_ERROR_POWER      (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_E2271CS021, 0))

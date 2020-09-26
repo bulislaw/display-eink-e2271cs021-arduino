@@ -163,10 +163,11 @@ cy_rslt_t MTB_E2271CS021_InitDriver(const mtb_e2271cs021_pins_t *pin_data, cyhal
 uint32_t MTB_E2271CS021_GetTimeTick(void)
 {
 #if defined(CY_RTOS_AWARE) || defined(COMPONENT_RTOS_AWARE)
-	uint32_t rtosTime;
-	cy_rslt_t status = cy_rtos_get_time(&rtosTime);
-	CY_ASSERT(CY_RSLT_SUCCESS == status);
-	return rtosTime;
+    uint32_t rtosTime;
+    cy_rslt_t status = cy_rtos_get_time(&rtosTime);
+    CY_UNUSED_PARAMETER(status); /* CY_ASSERT only processes in DEBUG, ignores for others */
+    CY_ASSERT(CY_RSLT_SUCCESS == status);
+    return rtosTime;
 #else
     return cyhal_timer_read(&eink_timer) / 32; /* millisecond accuracy */
 #endif
@@ -223,7 +224,7 @@ void MTB_E2271CS021_FreeDriver(void)
     spi_ptr = NULL;
 
 #if !defined(CY_RTOS_AWARE) && !defined(COMPONENT_RTOS_AWARE)
-	cyhal_timer_free(&eink_timer);
+    cyhal_timer_free(&eink_timer);
     cyhal_syspm_unregister_callback(&syspm_callback_data);
 #endif
 }

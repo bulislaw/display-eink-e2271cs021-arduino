@@ -8,6 +8,9 @@ This library provides functions for supporting the 2.7" EPD Display (E2271CS021)
 * emWin configuration code
 
 ### What Changed?
+#### v1.0.1
+* Minor updates to avoid warnings on some toolchains
+* Minor documentation updates
 #### v1.0.0
 * Initial release
 
@@ -16,10 +19,12 @@ This version of the EPD Display was validated for compatibility with the followi
 
 | Software and Tools                        | Version |
 | :---                                      | :----:  |
-| ModusToolbox Software Environment         | 2.0     |
-| GCC Compiler                              | 7.4     |
-| IAR Compiler                              | 8.32    |
+| ModusToolbox Software Environment         | 2.1     |
+| GCC Compiler                              | 9.2     |
+| IAR Compiler                              | 8.4     |
 | ARM Compiler 6                            | 6.11    |
+
+Minimum required ModusToolbox Software Environment: v2.0
 
 ### More information
 
