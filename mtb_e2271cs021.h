@@ -1,4 +1,4 @@
-/**************************************************************************//**
+/***********************************************************************************************//**
  * \file mtb_e2271cs021.h
  *
  * Description: This file is the public interface of the EE2271CS021
@@ -8,9 +8,9 @@
  * documents available at the following website:
  * https://www.pervasivedisplays.com/product/2-71-e-ink-display/
  *
- *******************************************************************************
+ ***************************************************************************************************
  * \copyright
- * Copyright 2018-2020 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,10 +24,9 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- *******************************************************************************/
+ **************************************************************************************************/
 
-#ifndef MTB_E2271CS021_H
-#define MTB_E2271CS021_H
+#pragma once
 
 #include "cy_result.h"
 #include "mtb_e2271cs021_display.h"
@@ -40,24 +39,24 @@ extern "C"
 #endif
 
 /**
-* \addtogroup group_board_libs E-INK
-* \{
-* APIs for controlling the E-INK display on the board.
-*/
+ * \addtogroup group_board_libs E-INK
+ * \{
+ * APIs for controlling the E-INK display on the board.
+ */
 
-/* Macros for background color options */
+// Macros for background color options
 /** White background color for \ref mtb_e2271cs021_clear() */
 #define MTB_E2271CS021_WHITE_BACKGROUND      (true)
 /** Black background color for \ref mtb_e2271cs021_clear() */
 #define MTB_E2271CS021_BLACK_BACKGROUND      (false)
 
-/* Macros of font coordinates */
+// Macros of font coordinates
 /** X font start coordinate for \ref mtb_e2271cs021_text_to_frame_buffer() */
 #define MTB_E2271CS021_FONT_X                (0x00)
 /** Y font start coordinate for \ref mtb_e2271cs021_text_to_frame_buffer() */
 #define MTB_E2271CS021_FONT_Y                (0x01)
 
-/* Macros of image coordinates */
+// Macros of image coordinates
 /** X image start coordinate for \ref mtb_e2271cs021_image_to_frame_buffer() */
 #define MTB_E2271CS021_IMG_X1                (0x00)
 /** X image end coordinate for \ref mtb_e2271cs021_image_to_frame_buffer() */
@@ -67,42 +66,36 @@ extern "C"
 /** Y image end coordinate for \ref mtb_e2271cs021_image_to_frame_buffer() */
 #define MTB_E2271CS021_IMG_Y2                (0x03)
 
-/* Definitions of byte-level colors */
+// Definitions of byte-level colors
 /** Value to clear an 8 pixel section of the screen to white. */
 #define MTB_E2271CS021_CLEAR_TO_WHITE        (0xFF)
 /** Value to clear an 8 pixel section of the screen to black. */
 #define MTB_E2271CS021_CLEAR_TO_BLACK        (0x00)
 
 /** Number of bytes needed for a full image (pixel count / 8). */
-#define MTB_E2271CS021_FRAME_SIZE            (MTB_E2271CS021_DISPLAY_SIZE_X * MTB_E2271CS021_DISPLAY_SIZE_Y / 8)
+#define MTB_E2271CS021_FRAME_SIZE           ((MTB_E2271CS021_DISPLAY_SIZE_X * \
+                                              MTB_E2271CS021_DISPLAY_SIZE_Y) / 8)
 
 /** Default temperature compensation factor used during initalization. Call
  * \ref mtb_e2271cs021_set_temp_factor() if a different temp is needed. */
 #define MTB_E2271CS021_DEFAULT_TEMP_FACTOR   (20)
 
 /** Error changing power state for display. */
-#define MTB_E2271CS021_RSLT_ERROR_POWER      (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_E2271CS021, 0))
+#define MTB_E2271CS021_RSLT_ERROR_POWER      \
+    (CY_RSLT_CREATE(CY_RSLT_TYPE_ERROR, CY_RSLT_MODULE_BOARD_HARDWARE_E2271CS021, 0))
 
 /** Structure that contains font information */
 typedef struct
 {
-    /** Pointer to the font pixel data array */
-    uint8_t* fontData;
-    /** X offset of the font in pixels */
-    uint8_t  xOffset;
-    /** Y offset of the font in pixels */
-    uint8_t  yOffset;
-    /** X size of one font data in bytes */
-    uint8_t  xSize;
-    /** Y size of one font data in bytes */
-    uint8_t  ySize;
-    /** Number of characters that fit the screen horizontally */
-    uint8_t  xSpan;
-    /** Number of characters that fit the screen vertically */
-    uint8_t  ySpan;
-    /* Color of the font : true  = black characters in white background
-                           false = white characters in black background */
-    bool color;
+    uint8_t* fontData;  /**< Pointer to the font pixel data array */
+    uint8_t  xOffset;   /**< X offset of the font in pixels */
+    uint8_t  yOffset;   /**< Y offset of the font in pixels */
+    uint8_t  xSize;     /**< X size of one font data in bytes */
+    uint8_t  ySize;     /**< Y size of one font data in bytes */
+    uint8_t  xSpan;     /**< Number of characters that fit the screen horizontally */
+    uint8_t  ySpan;     /**< Number of characters that fit the screen vertically */
+    bool     color;     /**< Color of the font : true  = black characters in white background,
+                                                 false = white characters in black background */
 } mtb_e2271cs021_font_t;
 
 /** Different ways the E-INK display can be updated */
@@ -119,10 +112,10 @@ typedef enum
     MTB_E2271CS021_FULL_4STAGE,
     /** Full update with only stages 1 and 4. Stages 2 and 3 are skipped */
     MTB_E2271CS021_FULL_2STAGE
-}   mtb_e2271cs021_update_t;
+} mtb_e2271cs021_update_t;
 
 
-/* Power and initialization functions */
+// Power and initialization functions
 /**
  * Initialize the E-INK display hardware, starts the required hardware
  * components, and sets a default temperature compensation factor.
@@ -133,7 +126,7 @@ typedef enum
  * of the SPI interface. It is toggled manually.
  * @return CY_RSLT_SUCCESS if properly initialized, else an error indicating what went wrong.
  */
-cy_rslt_t mtb_e2271cs021_init(const mtb_e2271cs021_pins_t *pins, cyhal_spi_t *spi);
+cy_rslt_t mtb_e2271cs021_init(const mtb_e2271cs021_pins_t* pins, cyhal_spi_t* spi);
 
 /**
  * Frees any hardware resources reserved for the E-INK display.
@@ -156,7 +149,7 @@ void mtb_e2271cs021_set_temp_factor(int8_t temperature);
  */
 cy_rslt_t mtb_e2271cs021_power(bool power);
 
-/* Display update functions */
+// Display update functions
 /**
  * Clears the display to all white or all black pixels.
  *
@@ -167,7 +160,8 @@ cy_rslt_t mtb_e2271cs021_power(bool power);
  * Note2: This function is intended to be called only after a reset/power up.
  * Use \ref mtb_e2271cs021_show_frame() to clear the display if you know the frame
  * that has been written to the display.
- * @param[in] background   \ref MTB_E2271CS021_WHITE_BACKGROUND or \ref MTB_E2271CS021_BLACK_BACKGROUND
+ * @param[in] background   \ref MTB_E2271CS021_WHITE_BACKGROUND or
+ *                         \ref MTB_E2271CS021_BLACK_BACKGROUND
  * @param[in] power_cycle   true for automatic power cycle. False otherwise
  * @return CY_RSLT_SUCCESS if properly initialized, else an error indicating what went wrong.
  */
@@ -192,7 +186,7 @@ cy_rslt_t mtb_e2271cs021_clear(bool background, bool power_cycle);
 cy_rslt_t mtb_e2271cs021_show_frame(
     uint8_t* prev_frame, uint8_t* new_frame, mtb_e2271cs021_update_t update_type, bool power_cycle);
 
-/* Frame buffer operations */
+// Frame buffer operations
 /**
  * Copies pixel block data between the specified x and y coordinates
  * from an image (typically stored in the flash) to a frame buffer in RAM.
@@ -209,7 +203,8 @@ cy_rslt_t mtb_e2271cs021_show_frame(
  * @param[in]     img_coordinates Pointer to a 4-byte array of image coordinates
  * @return CY_RSLT_SUCCESS if properly initialized, else an error indicating what went wrong.
  */
-void mtb_e2271cs021_image_to_frame_buffer(uint8_t* frame_buffer, uint8_t* image, uint8_t* img_coordinates);
+void mtb_e2271cs021_image_to_frame_buffer(uint8_t* frame_buffer, uint8_t* image,
+                                          uint8_t* img_coordinates);
 /**
  * Converts a text input (string) to pixel data and stores it at the specified
  * coordinates of a frame buffer.
@@ -232,13 +227,11 @@ void mtb_e2271cs021_image_to_frame_buffer(uint8_t* frame_buffer, uint8_t* image,
  * @return CY_RSLT_SUCCESS if properly initialized, else an error indicating what went wrong.
  */
 void mtb_e2271cs021_text_to_frame_buffer(
-    uint8_t* frame_buffer, char* string, mtb_e2271cs021_font_t* font_info, uint8_t* font_coordinates);
+    uint8_t* frame_buffer, char* string, mtb_e2271cs021_font_t* font_info,
+    uint8_t* font_coordinates);
 
 /** \} group_board_libs */
 
 #if defined(__cplusplus)
 }
 #endif
-
-#endif /* MTB_E2271CS021_H */
-/* [] END OF FILE */

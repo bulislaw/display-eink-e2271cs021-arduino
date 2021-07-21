@@ -9,7 +9,7 @@
  *
  *******************************************************************************
  * \copyright
- * Copyright 2018-2020 Cypress Semiconductor Corporation
+ * Copyright 2018-2021 Cypress Semiconductor Corporation
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,8 +25,7 @@
  * limitations under the License.
  *******************************************************************************/
 
-#ifndef MTB_E2271CS021_DISPLAY_H
-#define MTB_E2271CS021_DISPLAY_H
+#pragma once
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -38,9 +37,9 @@ extern "C"
 #endif
 
 /**
-* \addtogroup group_board_libs
-* \{
-*/
+ * \addtogroup group_board_libs
+ * \{
+ */
 
 /** Number of horizontal pixels in the E-ink display */
 #define MTB_E2271CS021_DISPLAY_SIZE_X        (264u)
@@ -69,6 +68,3 @@ typedef struct
 #if defined(__cplusplus)
 }
 #endif
-
-#endif  /* MTB_E2271CS021_DISPLAY_H */
-/* [] END OF FILE */

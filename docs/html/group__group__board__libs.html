@@ -147,7 +147,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ga3d4ebb7f8a5c9a7dda311a1f3db2d778"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga3d4ebb7f8a5c9a7dda311a1f3db2d778">MTB_E2271CS021_CLEAR_TO_BLACK</a>&#160;&#160;&#160;(0x00)</td></tr>
 <tr class="memdesc:ga3d4ebb7f8a5c9a7dda311a1f3db2d778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value to clear an 8 pixel section of the screen to black.  <a href="#ga3d4ebb7f8a5c9a7dda311a1f3db2d778">More...</a><br /></td></tr>
 <tr class="separator:ga3d4ebb7f8a5c9a7dda311a1f3db2d778"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8b8439bad844a962c474f54c1d5e5750"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga8b8439bad844a962c474f54c1d5e5750">MTB_E2271CS021_FRAME_SIZE</a>&#160;&#160;&#160;(<a class="el" href="group__group__board__libs.html#gac83ffb1bb5e530e94ee3ad747256f2a6">MTB_E2271CS021_DISPLAY_SIZE_X</a> * <a class="el" href="group__group__board__libs.html#ga3248b2a276a72c33fb159fbd0d803d72">MTB_E2271CS021_DISPLAY_SIZE_Y</a> / 8)</td></tr>
+<tr class="memitem:ga8b8439bad844a962c474f54c1d5e5750"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga8b8439bad844a962c474f54c1d5e5750">MTB_E2271CS021_FRAME_SIZE</a></td></tr>
 <tr class="memdesc:ga8b8439bad844a962c474f54c1d5e5750"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of bytes needed for a full image (pixel count / 8).  <a href="#ga8b8439bad844a962c474f54c1d5e5750">More...</a><br /></td></tr>
 <tr class="separator:ga8b8439bad844a962c474f54c1d5e5750"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga28608cf451218ee5d1d0bd662fb20546"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__group__board__libs.html#ga28608cf451218ee5d1d0bd662fb20546">MTB_E2271CS021_DEFAULT_TEMP_FACTOR</a>&#160;&#160;&#160;(20)</td></tr>
@@ -271,7 +271,7 @@ Number of characters that fit the screen vertically. </td></tr>
 <td class="fieldname">
 color</td>
 <td class="fielddoc">
-</td></tr>
+Color of the font : true = black characters in white background, false = white characters in black background. </td></tr>
 </table>
 
 </div>
@@ -393,11 +393,12 @@ GPIO IO Enable pin. </td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MTB_E2271CS021_FRAME_SIZE&#160;&#160;&#160;(<a class="el" href="group__group__board__libs.html#gac83ffb1bb5e530e94ee3ad747256f2a6">MTB_E2271CS021_DISPLAY_SIZE_X</a> * <a class="el" href="group__group__board__libs.html#ga3248b2a276a72c33fb159fbd0d803d72">MTB_E2271CS021_DISPLAY_SIZE_Y</a> / 8)</td>
+          <td class="memname">#define MTB_E2271CS021_FRAME_SIZE</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<b>Value:</b><div class="fragment"><div class="line">((<a class="code" href="group__group__board__libs.html#gac83ffb1bb5e530e94ee3ad747256f2a6">MTB_E2271CS021_DISPLAY_SIZE_X</a> * \</div><div class="line">                                              MTB_E2271CS021_DISPLAY_SIZE_Y) / 8)</div><div class="ttc" id="group__group__board__libs_html_gac83ffb1bb5e530e94ee3ad747256f2a6"><div class="ttname"><a href="group__group__board__libs.html#gac83ffb1bb5e530e94ee3ad747256f2a6">MTB_E2271CS021_DISPLAY_SIZE_X</a></div><div class="ttdeci">#define MTB_E2271CS021_DISPLAY_SIZE_X</div><div class="ttdoc">Number of horizontal pixels in the E-ink display. </div><div class="ttdef"><b>Definition:</b> mtb_e2271cs021_display.h:45</div></div>
+</div><!-- fragment -->
 <p>Number of bytes needed for a full image (pixel count / 8). </p>
 
 </div>

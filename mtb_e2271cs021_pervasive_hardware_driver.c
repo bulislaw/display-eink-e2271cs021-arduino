@@ -29,7 +29,7 @@
 *  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 *******************************************************************************/
 /*******************************************************************************
- * Copyright 2020 Cypress Semiconductor Corporation
+ * Copyright 2020-2021 Cypress Semiconductor Corporation
  * SPDX-License-Identifier: Apache-2.0
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -501,7 +501,7 @@ void Pv_EINK_FullStageHandler(pv_eink_frame_data_t* imagePtr,
     int16       scanlineNumber = 0;
 
     /* Temporary storage for image data byte */
-    uint8_t     tempByte = *imagePtr;
+    uint8_t     tempByte;
 
     /* Flag to check if the current pointer is a macro of white/black frame */
     bool        blackOrWhiteFrame;
@@ -528,6 +528,8 @@ void Pv_EINK_FullStageHandler(pv_eink_frame_data_t* imagePtr,
     {
         /* Clear the white/black frame flag */
         blackOrWhiteFrame = false;
+        /* set the tempByte to first pixel byte */
+        tempByte = *imagePtr;
     }
 
     /* Re-initialize E-INK timer to ensure the same duration of each stage */

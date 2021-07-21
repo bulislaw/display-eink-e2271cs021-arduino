@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['xoffset',['xOffset',['../group__group__board__libs.html#a9263b5e0f43caa94f6ba84e2947d0d52',1,'mtb_e2271cs021_font_t']]],
-  ['xsize',['xSize',['../group__group__board__libs.html#a6d03481f56ea3f7b26366f5019d4f68f',1,'mtb_e2271cs021_font_t']]],
-  ['xspan',['xSpan',['../group__group__board__libs.html#aaeaea9fd36bcacdb183c696ddcabcf2e',1,'mtb_e2271cs021_font_t']]]
+  ['spi_5fcs',['spi_cs',['../group__group__board__libs.html#a5436b40a9000ec6e83721b3a95a44a09',1,'mtb_e2271cs021_pins_t']]],
+  ['spi_5fmiso',['spi_miso',['../group__group__board__libs.html#a933cf0ab9acdd774f88821aaa251cf1e',1,'mtb_e2271cs021_pins_t']]],
+  ['spi_5fmosi',['spi_mosi',['../group__group__board__libs.html#a053062a28becef9cefeaee64c1c95c66',1,'mtb_e2271cs021_pins_t']]],
+  ['spi_5fsclk',['spi_sclk',['../group__group__board__libs.html#ad9cff04aa4c084512f09bea1f1e0f3b4',1,'mtb_e2271cs021_pins_t']]]
 ];

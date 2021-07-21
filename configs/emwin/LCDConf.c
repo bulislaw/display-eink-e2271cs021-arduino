@@ -17,9 +17,9 @@ only be used in accordance with the following terms:
 
 The software  has been licensed to  Cypress Semiconductor Corporation,
 whose registered  office is situated  at 198 Champion Ct. San Jose, CA
-95134 USA  solely for the  purposes of creating  libraries for Cypress
+95134 USA  solely for the  purposes of creating  libraries for Infineon
 PSoC3 and  PSoC5 processor-based devices,  sublicensed and distributed
-under  the  terms  and  conditions  of  the  Cypress  End User License
+under  the  terms  and  conditions  of  the  Infineon  End User License
 Agreement.
 Full source code is available at: www.segger.com
 
