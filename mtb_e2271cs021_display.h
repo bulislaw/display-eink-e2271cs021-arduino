@@ -29,7 +29,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "cyhal_gpio.h"
+#include "Arduino.h"
 
 #if defined(__cplusplus)
 extern "C"
@@ -51,16 +51,16 @@ extern "C"
 /** Configuration structure defining the necessary pins to communicate with the E-ink display */
 typedef struct
 {
-    cyhal_gpio_t spi_mosi;  /**< SPI MOSI pin */
-    cyhal_gpio_t spi_miso;  /**< SPI MISO pin */
-    cyhal_gpio_t spi_sclk;  /**< SPI SCLK pin */
-    cyhal_gpio_t spi_cs;    /**< SPI CS pin */
-    cyhal_gpio_t reset;     /**< GPIO Reset pin */
-    cyhal_gpio_t busy;      /**< GPIO Busy pin */
-    cyhal_gpio_t discharge; /**< GPIO Discharge pin */
-    cyhal_gpio_t enable;    /**< GPIO Enable pin */
-    cyhal_gpio_t border;    /**< GPIO Border pin */
-    cyhal_gpio_t io_enable; /**< GPIO IO Enable pin */
+    PinName spi_mosi;  /**< SPI MOSI pin */
+    PinName spi_miso;  /**< SPI MISO pin */
+    PinName spi_sclk;  /**< SPI SCLK pin */
+    PinName spi_cs;    /**< SPI CS pin */
+    PinName reset;     /**< GPIO Reset pin */
+    PinName busy;      /**< GPIO Busy pin */
+    PinName discharge; /**< GPIO Discharge pin */
+    PinName enable;    /**< GPIO Enable pin */
+    PinName border;    /**< GPIO Border pin */
+    PinName io_enable; /**< GPIO IO Enable pin */
 } mtb_e2271cs021_pins_t;
 
 /** \} group_board_libs */
